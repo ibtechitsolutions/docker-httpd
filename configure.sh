@@ -25,6 +25,7 @@ DocumentRoot "/var/www/html"
      Options Indexes FollowSymLinks
      AllowOverride All
      DirectoryIndex index.php index.html
+     Require all granted
 </Directory>
 
 ProxyPassMatch ^/(.*\.php(/.*)?)$ fcgi://php-fpm:9000/var/www/html/\$1
