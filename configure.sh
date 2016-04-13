@@ -1,6 +1,6 @@
 mkdir -p /var/www/html
 
-cat > /usr/local/apache2/conf/extra/fenix.conf << EOF
+cat > /usr/local/apache2/conf/extra/loja.conf << EOF
 LoadModule allowmethods_module modules/mod_allowmethods.so
 LoadModule file_cache_module modules/mod_file_cache.so
 LoadModule cache_module modules/mod_cache.so
@@ -36,4 +36,4 @@ ServerTokens Minimal
 EOF
 
 
-echo "Include /usr/local/apache2/conf/extra/fenix.conf" >> /usr/local/apache2/conf/httpd.conf
+echo "Include /usr/local/apache2/conf/extra/loja.conf" >> /usr/local/apache2/conf/loja.conf
