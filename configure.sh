@@ -36,4 +36,4 @@ ServerTokens Minimal
 EOF
 
 
-echo "Include /usr/local/apache2/conf/extra/loja.conf" >> /usr/local/apache2/conf/loja.conf
+echo "Include /usr/local/apache2/conf/extra/loja.conf" >> /usr/local/apache2/conf/httpd.conf
