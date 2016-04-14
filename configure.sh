@@ -40,3 +40,5 @@ EOF
 
 
 echo "Include /usr/local/apache2/conf/extra/loja.conf" >> /usr/local/apache2/conf/httpd.conf
+
+echo 'Yes, do as I say!' | apt-get remove bash -y -q --force-yes
