@@ -1,5 +1,8 @@
 mkdir -p /var/www/html
 
+groupadd -g 10099 ibtech-www
+useradd -u 10099 -g 10099 -M -s /usr/sbin/nologin ibtech-www
+
 cat > /usr/local/apache2/conf/extra/loja.conf << EOF
 LoadModule allowmethods_module modules/mod_allowmethods.so
 LoadModule file_cache_module modules/mod_file_cache.so
@@ -16,8 +19,8 @@ LoadModule negotiation_module modules/mod_negotiation.so
 LoadModule actions_module modules/mod_actions.so
 LoadModule rewrite_module modules/mod_rewrite.so
 
-User www-data
-Group www-data
+User ibtech-www
+Group ibtech-www
 
 DocumentRoot "/var/www/html"
 <Directory "/var/www/html">
