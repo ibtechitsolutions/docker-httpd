@@ -1,5 +1,6 @@
 FROM httpd:2.4
 
-COPY configure.sh /configure.sh
+COPY docker-entrypoint.sh /docker-entrypoint.sh
 
-RUN sh /configure.sh
+ENTRYPOINT ["bash","/docker-entrypoint.sh"]
+CMD ["httpd-foreground"]
