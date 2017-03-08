@@ -43,9 +43,8 @@ create_user_from_directory_owner() {
 
     if [ ! -f /usr/local/apache2/conf/extra/loja.conf ]; then
         echo "Include /usr/local/apache2/conf/extra/loja.conf" >> /usr/local/apache2/conf/httpd.conf
-    fi
 
-    cat << EOF > /usr/local/apache2/conf/extra/loja.conf
+        cat << EOF > /usr/local/apache2/conf/extra/loja.conf
 LoadModule allowmethods_module modules/mod_allowmethods.so
 LoadModule file_cache_module modules/mod_file_cache.so
 LoadModule cache_module modules/mod_cache.so
@@ -90,6 +89,8 @@ KeepAlive Off
 
 ServerTokens Minimal
 EOF
+
+    fi
 
     export APACHE_RUN_USER=$owner
     export APACHE_RUN_GROUP=$group
