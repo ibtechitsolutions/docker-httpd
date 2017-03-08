@@ -41,9 +41,11 @@ create_user_from_directory_owner() {
         fi
     fi
 
-    if [ ! -f /usr/local/apache2/conf/extra/loja.conf ]; then
+    if [ "$(grep -lir loja.conf /usr/local/apache2/conf/httpd.conf | wc -l)" = 0 ]; then
         echo "Include /usr/local/apache2/conf/extra/loja.conf" >> /usr/local/apache2/conf/httpd.conf
+    fi
 
+    if [ ! -f /usr/local/apache2/conf/extra/loja.conf ]; then
         cat << EOF > /usr/local/apache2/conf/extra/loja.conf
 LoadModule allowmethods_module modules/mod_allowmethods.so
 LoadModule file_cache_module modules/mod_file_cache.so
