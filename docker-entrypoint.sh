@@ -49,12 +49,13 @@ create_user_from_directory_owner() {
         echo "Include /usr/local/apache2/conf/loja.conf.d/*.conf" >> /usr/local/apache2/conf/httpd.conf
     fi
 
-    if [ ! -d /usr/local/apache2/conf/loja.conf.d ]; then
+    if [ -d /usr/local/apache2/conf/loja.conf.d ]; then
+	touch /usr/local/apache2/conf/extra/loja.conf
+    else
 	mkdir /usr/local/apache2/conf/loja.conf.d
-    fi
 
-    if [ ! -f /usr/local/apache2/conf/extra/loja.conf ]; then
-        cat << EOF > /usr/local/apache2/conf/extra/loja.conf
+    	if [ ! -f /usr/local/apache2/conf/extra/loja.conf ]; then
+	        cat << EOF > /usr/local/apache2/conf/extra/loja.conf
 LoadModule allowmethods_module modules/mod_allowmethods.so
 LoadModule file_cache_module modules/mod_file_cache.so
 LoadModule cache_module modules/mod_cache.so
@@ -99,6 +100,7 @@ KeepAlive Off
 
 ServerTokens Minimal
 EOF
+	fi
 
     fi
 
