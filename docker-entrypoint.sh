@@ -49,6 +49,10 @@ create_user_from_directory_owner() {
         echo "Include /usr/local/apache2/conf/loja.conf.d/*.conf" >> /usr/local/apache2/conf/httpd.conf
     fi
 
+    if [ ! -d /usr/local/apache2/conf/loja.conf.d ]; then
+	mkdir /usr/local/apache2/conf/loja.conf.d
+    fi
+
     if [ ! -f /usr/local/apache2/conf/extra/loja.conf ]; then
         cat << EOF > /usr/local/apache2/conf/extra/loja.conf
 LoadModule allowmethods_module modules/mod_allowmethods.so
