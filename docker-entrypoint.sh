@@ -42,17 +42,17 @@ create_user_from_directory_owner() {
     fi
 
     if [ "$(grep -lir loja.conf /usr/local/apache2/conf/httpd.conf | wc -l)" = 0 ]; then
-        echo "Include /usr/local/apache2/conf/extra/loja.conf" >> /usr/local/apache2/conf/httpd.conf
+        echo "IncludeOptional /usr/local/apache2/conf/extra/loja.conf" >> /usr/local/apache2/conf/httpd.conf
     fi
 
     if [ "$(grep -lir loja.conf.d /usr/local/apache2/conf/httpd.conf | wc -l)" = 0 ]; then
-        echo "Include /usr/local/apache2/conf/loja.conf.d/*.conf" >> /usr/local/apache2/conf/httpd.conf
+        echo "IncludeOptional /usr/local/apache2/conf/loja.conf.d/*.conf" >> /usr/local/apache2/conf/httpd.conf
     fi
 
     if [ -d /usr/local/apache2/conf/loja.conf.d ]; then
-	touch /usr/local/apache2/conf/extra/loja.conf
+	    touch /usr/local/apache2/conf/extra/loja.conf
     else
-	mkdir /usr/local/apache2/conf/loja.conf.d
+	    mkdir /usr/local/apache2/conf/loja.conf.d
 
     	if [ ! -f /usr/local/apache2/conf/extra/loja.conf ]; then
 	        cat << EOF > /usr/local/apache2/conf/extra/loja.conf
