@@ -94,11 +94,6 @@ Alias /img/vendedor/ /var/www/img/vendedor/
      Require all granted
 </Directory>
 
-<Location /protected>
-  SSLOptions +StdEnvVars
-  SSLVerifyClient require
-</Location>
-
 ProxyPassMatch ^/(.*\.php(/.*)?)$ fcgi://php-fpm:9000/var/www/html/\$1
 
 KeepAlive Off
