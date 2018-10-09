@@ -114,5 +114,9 @@ EOF
 
 create_user_from_directory_owner "/var/www/html"
 
+<Location /protected>
+  SSLOptions +StdEnvVars
+  SSLVerifyClient require
+</Location>
 
 exec "$@"
