@@ -79,6 +79,7 @@ DocumentRoot "/var/www/html"
      Require all granted
 </Directory>
 
+Alias /downloads/ /var/www/downloads/
 Alias /img/banner/ /var/www/img/banner/
 Alias /img/destaque/ /var/www/img/destaque/
 Alias /img/galeria/ /var/www/img/galeria/
